@@ -1,8 +1,10 @@
 package com.zplus.demorel.service.Impl;
 
 import com.zplus.demorel.dao.CompanyDao;
+import com.zplus.demorel.dao.EmployeeDao;
 import com.zplus.demorel.dto.CnameReqDto;
 import com.zplus.demorel.dto.CompanyReqDto;
+import com.zplus.demorel.dto.res.EmpResDto;
 import com.zplus.demorel.dto.res.ResDto;
 import com.zplus.demorel.model.CompanyModel;
 import com.zplus.demorel.service.CompanyService;
@@ -17,6 +19,9 @@ import java.util.List;
 public class CompanyServiceImpl implements CompanyService {
     @Autowired
     private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Override
     public Boolean insertCompany(CompanyReqDto companyDto) {
@@ -86,6 +91,11 @@ public class CompanyServiceImpl implements CompanyService {
         return resDto;
     }
 
+    @Override
+    public List<EmpResDto> getBySearchtext(String searchtext) {
+        List<EmpResDto> empResDtoList = employeeDao.getBySearchtext(searchtext);
+        return empResDtoList;
+    }
 
     @Override
     public List activeCompanyDetails() {

@@ -49,7 +49,7 @@ public class ClientController {
 
         if (list.size() != 0)
             return new ResponseEntity(list, HttpStatus.OK);
-        else
+        else{}
             return new ResponseEntity(list, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }

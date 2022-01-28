@@ -2,6 +2,7 @@ package com.zplus.demorel.controller;
 
 import com.zplus.demorel.dto.CnameReqDto;
 import com.zplus.demorel.dto.CompanyReqDto;
+import com.zplus.demorel.dto.res.EmpResDto;
 import com.zplus.demorel.dto.res.ResDto;
 import com.zplus.demorel.model.CompanyModel;
 import com.zplus.demorel.service.CompanyService;
@@ -71,7 +72,7 @@ public class CompanyController {
     }
 
 
-    @PostMapping("/findByAddressAndCompanyName/")
+    @PostMapping("/findByAddressAndCompanyName")
     private ResponseEntity findByAddressAndCompanyName(@RequestBody CnameReqDto cnameReqDtoReqDto) {
         List list = companyService.findByAddressAndCompanyName(cnameReqDtoReqDto);
         return new ResponseEntity(list, HttpStatus.OK);
@@ -87,6 +88,15 @@ public class CompanyController {
             return new ResponseEntity(resDto, HttpStatus.OK);
         else
             return new ResponseEntity(resDto, HttpStatus.INTERNAL_SERVER_ERROR);
+
+    }
+
+    @PostMapping(value = "/getBySearchtext/{searchtext}")
+    private ResponseEntity getBySearchtext(@PathVariable  String searchtext)
+    {
+
+       List<EmpResDto> empResDto =companyService.getBySearchtext(searchtext);
+        return new ResponseEntity(empResDto, HttpStatus.OK);
 
     }
 

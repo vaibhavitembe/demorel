@@ -1,5 +1,6 @@
 package com.zplus.demorel.dao;
 
+import com.zplus.demorel.dto.res.EmpResDto;
 import com.zplus.demorel.dto.res.ResDto;
 import com.zplus.demorel.model.CompanyModel;
 import org.springframework.data.jpa.repository.Query;
@@ -23,6 +24,7 @@ public interface CompanyDao extends CrudRepository<CompanyModel, Integer> {
     //List findByAddressAndCompanyName(String contactNo, String name);
 
     List findByStatus(String active);
+
 
 
     //bject getTitleByCompanyname(String term);

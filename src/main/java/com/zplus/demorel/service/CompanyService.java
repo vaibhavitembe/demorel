@@ -2,6 +2,7 @@ package com.zplus.demorel.service;
 
 import com.zplus.demorel.dto.CnameReqDto;
 import com.zplus.demorel.dto.CompanyReqDto;
+import com.zplus.demorel.dto.res.EmpResDto;
 import com.zplus.demorel.dto.res.ResDto;
 import com.zplus.demorel.model.CompanyModel;
 
@@ -22,4 +23,7 @@ public interface CompanyService {
     CompanyModel getCompanyDetailsByCompanyId(Integer compId);
 
     ResDto getCompanyId(Integer companyId);
+
+
+    List<EmpResDto> getBySearchtext(String searchtext);
 }
